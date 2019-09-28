@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>웹카오톡:채팅</title>
+    
+     <!--icon-->
+     <script src="https://kit.fontawesome.com/f6eb5c5884.js"
+     crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css"><!--공통 레이아웃 css-->
+
+  <style>
+  .propil{        /*프로필 사진 크기조정*/
+width: 50px;
+height: 50px;
+border-radius: 10px;
+}
+
+.name{          /*친구,사용자,체팅방 제목이름 글자 크기 조정*/
+font-size: 15px;
+padding-left: 10px;
+}
+
+.lastDate{        /*마지막으로 채팅한시간을 보여주는 부분 의 스타일*/
+float:right;
+font-size:9px;
+color:gray;
+margin-right: 30px;
+}
+
+.stateMessage{ /*상테메세지,채팅방 내용 글자크기 색 조정*/
+font-size: 12px;
+color:gray;
+padding-left: 10px;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="menu"> <!--menu-->
+        <a href="kakaotalk.html"><i class="fas fa-user"></i></a> <!--유저-->
+        <a href="kakaotalkChat.html"><i id="currentMenu" class="fas fa-comment"></i></a> <!--체팅 아이콘-->
+        <a href="kakaotalkMore.html"><i class="fas fa-align-justify"></i></a> <!--작대기 3개-->
+        <a class="mobileOnly" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a><!--유튜브-->
+    </div>
+    
+    <div id=navigation>
+        - ㅁ X
+    </div>
+
+    <div id="content"> <!--content-->
+        <div id="title">
+        <h2>채팅<i class="fas fa-comments"> <i class="fas fa-comment-medical"></i></i></h2>
+        <input type="text" value="채팅방 이름,참여자 검색"> 
+        </div>
+        <table>    
+            <tr>
+            <td><img class="propil" src="프로필 사진.png"></td>
+            <td><span class="name">친구들</span> <br><span class="stateMessage">앙 기모띠</span></td>
+            <td class="lastDate"> 하루전</td>
+            </tr>
+        </table>
+</div>  
+<div id="commercial"><!--commercial-->
+    <img class="originalImg" src="광고2.png" >
+</div>
+</div>  
+
+<div id="errorWibth"> <!--미디어쿼리 화면 너무 작아지면-->
+    <h1>sorry your display is too narrow</h1>
+</div>
+</body>
+</html>

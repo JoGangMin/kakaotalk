@@ -1,0 +1,180 @@
+/*2*3의 레이아웃을 만든후 조정하여 웹카오톡의 모양을 만든다.*/
+
+html,body{ /*화면에따라 세로가 움직이게 하기위한코드*/
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+
+body{
+    margin:0px;
+}
+#wrapper{
+    
+    display:grid;
+    height: 100%;
+    grid-template-columns: 50px auto;
+    grid-template-rows: 20px auto 111px;
+    
+}
+#navigation{             /*최소화 최대화 종료 버튼(미완성)*/
+    grid-column: 2/3;
+    
+    grid-row: 1/2;
+    text-align: right; /*436 픽셀보다 줄어들면 글자가 사라짐*/
+    padding-right: 5px;
+}
+#menu{              /*왼쪽 매뉴바*/
+    grid-row: 1/3;
+    padding-top:30px;
+    background-color: lightgrey;
+    font-size: 25px;
+    text-align: center;
+}
+a:link{color:darkgray}
+a:visited{color:darkgray}
+a:active{color: black}
+a:hover{color:gray}
+#currentMenu{           /*현제 페이지의아이콘 색을 변경*/
+    color:black;
+}
+
+a > i /*링크가 있는 아이콘의 스타일 지정*/
+{
+display: inline-block;
+margin-bottom: 30px;
+}
+
+
+
+#content{               /*페이지를 이동하면 바뀌는 부분*/
+overflow: scroll;
+
+overflow-x: hidden;
+
+grid-row: 2/3;
+grid-column: 2/3;
+
+}
+#title{             /*페이지 이름과 검색창을 묵음*/
+    margin :20px;
+}
+input{              /*체팅방,친구 검색박스*/
+    width: 97%;
+    
+    border-radius: 10px;
+    background-color: lightgrey;
+}
+h2{                 /*가장 윗줄에 친구 체팅등 이 페이지의 제목을 보여주는 영역*/
+    margin-top: 0px;
+    margin-bottom: 5px;
+
+}
+h2>i{               /*상단 <h2> 친구 체팅 <h2> 줄 오른쪽으로 아이콘을 붙인다 */
+    float: right;
+}
+
+table{
+    min-width: 100%;  
+} 
+
+td{
+    display: inline-block;
+    margin-top: 11px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+    padding :0px;
+    text-align: left;
+    }
+
+tr:hover /*마우스를 올리면 배경색을*/
+{
+background-color: rgb(238, 238, 238);
+}
+
+    
+
+#commercial{        /*광고 위치*/
+    
+    
+    grid-column: 1/3;
+    grid-row:3/4;
+
+    text-align: center;
+    background-color:rgb(254, 223, 166) 
+}
+
+.originalImg{
+   max-width: 476px;
+   max-height: 111px;
+}
+
+.mobileOnly{
+    display:none;
+}
+
+@media screen and (max-width:480px)
+{
+
+
+    #wrapper{
+        display:grid;
+        height: 100%;
+        grid-template-columns: 100%;
+        grid-template-rows: 20px auto 49px;  
+        
+    }
+    #menu{
+        
+        text-align: center;
+        padding-top:5px;
+
+        width: 45px;
+        height: 100%;
+       
+        position: fixed;
+        width: 100%;
+        height: 45px;
+        bottom: 0;
+
+    }
+
+    a > i /*링크가 있는 아이콘의 스타일 지정*/
+    {
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0px;
+    }
+    #content{
+        overflow: scroll;
+        overflow-x: hidden;
+        grid-column: 1/2;
+    } 
+    #commercial{        /*광고 위치*/
+        display: none;
+    
+        grid-row: 3/4;
+        text-align: center;
+        background-color:rgb(254, 223, 166)
+        
+    }
+    .originalImg{
+       max-width: 300px;
+       max-height: 111px;
+    }
+    h2>i{               /*상단 <h2> 친구 체팅 <h2> 줄 오른쪽으로 아이콘을 붙인다 */
+        float: right;
+        margin-right: 20px;
+    }
+
+    .mobileOnly{
+        display: inline-block;
+    }
+}
+
+
