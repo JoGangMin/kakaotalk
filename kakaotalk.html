@@ -52,12 +52,9 @@ h3{                 /*카테고리*/
     <div id="wrapper">
         <div id="menu"> <!--menu-->
             <a href="kakaotalk.html"><i id="currentMenu" class="fas fa-user"></i></a> <!--유저-->
-            <br>
-            <br>
             <a href="kakaotalkChat.html"><i class="fas fa-comment"></i></a> <!--체팅 아이콘-->
-            <br>
-            <br>
             <a href="kakaotalkMore.html"><i class="fas fa-align-justify"></i></a> <!--작대기 3개-->
+            <a class="mobileOnly" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a><!--유튜브-->
         </div>
 
         <div id=navigation>
@@ -67,7 +64,7 @@ h3{                 /*카테고리*/
         <div id="content"> <!--content-->
             <div id="title">
             <h2>친구<i class="fas fa-user-plus"></i></h2>
-            <input type="text" value="이름검색">    
+            <input type="text" placeholder="이름검색" value="">    
             </div>
 
             <table>
@@ -76,6 +73,7 @@ h3{                 /*카테고리*/
                 <td><span class="name">조강민</span> <br><span class="stateMessage">상테메세지</span> </td>
                 </tr>
             </table>
+            <hr/>
             <h3>즐겨찾기</h3>
             <table>
                 <tr>
@@ -94,7 +92,8 @@ h3{                 /*카테고리*/
                     <td><img class="propil" src="프로필 사진.png"></td>
                     <td><span class="name">친구4</span> <br><span class="stateMessage">상테메세지</span> </td>
                     </tr>              
-            </table>       
+            </table>   
+            <hr/>
             <h3>친구</h3>              
             <table>
                 <tr>
@@ -118,12 +117,9 @@ h3{                 /*카테고리*/
         </div>   
 
         <div id="commercial"><!--commercial-->
-            <img src="광고2.png" width="auto" height="111">
+        <img class="originalImg" src="광고2.png"  >
         </div>
     </div>
 
-    <div id="errorWibth"> <!--미디어쿼리 화면 너무 작아지면-->
-        <h1>sorry your display is too narrow</h1>
-    </div>
 </body>
 </html>
