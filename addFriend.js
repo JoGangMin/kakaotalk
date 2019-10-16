@@ -7,7 +7,7 @@ const newInfo = document.querySelector("#jsGetInfo")
 const addButton = document.querySelector("#jsAddButton");
 const frendsList = document.querySelector("#jsFrendsList");
 
-let friendList=[];
+let friendArr=[];
 
 function addFriendList(name,currentMassage){
     //세로운 데이터를 배열에 저장한다
@@ -15,7 +15,7 @@ function addFriendList(name,currentMassage){
         name:name,
         currentMassage:currentMassage,
     }
-    friendList.push(friendData);
+    friendArr.push(friendData);
     saveList();
     printList(friendData);// 세로추가된 객체
 }
@@ -24,10 +24,12 @@ function lodeData(){
     //저장되어있는 데이터를 불러배열로 만든다.
    
     const list = JSON.parse(localStorage.getItem("listDate"));
+        if(list !==null){
         list.forEach(element => {
-        friendList.push(element);
-    });
-    friendList.forEach(element => {
+        friendArr.push(element);
+        });
+    }   
+    friendArr.forEach(element => {
         printList(element);
     });
     
@@ -35,8 +37,8 @@ function lodeData(){
 }
 
 function saveList(){
-    //friendList 를 loclaStorage에 저장
-        localStorage.setItem("listDate",JSON.stringify(friendList));
+    //friendArr 를 loclaStorage에 저장
+        localStorage.setItem("listDate",JSON.stringify(friendArr));
     } 
 
 function printList(element){
@@ -55,7 +57,8 @@ function printList(element){
     nameSpan.innerText = element.name;
     stateSpan.innerText = element.currentMassage;
     img.src = "file:///C:/Users/%EC%88%98%EB%A3%8C%ED%95%98%EC%9E%90/Desktop/work/porjact/kakaotalk/%ED%94%84%EB%A1%9C%ED%95%84%20%EC%82%AC%EC%A7%84.png";
-    
+    li.classList.add("hover");
+
     li.appendChild(nameSpan);
     li.appendChild(stateSpan);
     li.appendChild(img);
@@ -75,8 +78,10 @@ function hideAddFrend(){
 }
 
 function pushButton(){
-    const nweName = newInfo.childNodes[1].value
-    const newState = newInfo.childNodes[3].value
+    const nweName = newInfo.childNodes[1].value;
+    const newState = newInfo.childNodes[3].value;
+    newInfo.childNodes[1].value = "";
+    newInfo.childNodes[3].value = "";
     askFrind();
     addFriendList(nweName,newState);
     
@@ -88,9 +93,7 @@ function show(){
     backGround.addEventListener("click",hideAddFrend);//배경을 클릭시 친구추가창 사라짐
     addButton.addEventListener("click",pushButton);//친구추가 버튼 누루면
 }
-if(localStorage.listDate!==null){
 lodeData();
-}   
-console.log(friendList);
+
 addFriend.addEventListener("click",show); // 친구추가창 열기
 

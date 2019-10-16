@@ -15,16 +15,21 @@
 
     <style>
 /*친구페이지 전용*/
+ul{
+    padding-left: 0px;
+}
 li{
     position: relative;
     width: 100%;
     height: 48px;
+    padding: 5px 0px;
+    list-style: none;
 }
 
 .propil{        /*프로필 사진 크기조정*/
     position: absolute;
-    top:0px;
-    left:-26px;
+    top:8.5px;
+    left:20px;
     width: 40px;
 height: 40px;
 border-radius: 10px;
@@ -32,19 +37,23 @@ border-radius: 10px;
 
 .name{          /*친구,사용자,체팅방 제목이름 글자 크기 조정*/
     position: absolute;
-    top:2px;
-    left:21px;
+    top:8px;
+    left:63px;
 font-size: 15px;
 padding-left: 10px;
 
 }
 .stateMessage{ /*상테메세지,채팅방 내용 글자크기 색 조정*/
     position: absolute;
-    top:24px;
-    left:20px;
+    top:32px;
+    left:63px;
 font-size: 12px;
 color:gray;
 padding-left: 10px;
+}
+.hover:hover
+{
+    background-color: gray;
 }
 td
 {
@@ -78,7 +87,9 @@ h3{                 /*카테고리*/
         <div id="content"> <!--content-->
             <div id="title">
             <h2>친구<i id="jsAddFriend" class="fas fa-user-plus" ></i></h2>
-            <input type="text" placeholder="이름검색" value="">    
+            <form id="searchName">
+            <input type="text" placeholder="이름검색">
+            </form>    
             </div>
             <ul>
                 <li><img class="propil" src="프로필 사진.png">
@@ -86,9 +97,8 @@ h3{                 /*카테고리*/
             </ul>
             <hr/>
             <h3>친구</h3>              
-            <ul id="jsFrendsList">
-                <li><img class="propil" src="프로필 사진.png">
-                <span class="name">친구5</span><span class="stateMessage">상테메세지</span> </li>     
+            <ul id="jsFrendsList" class="friendList">
+        
             </ul>
         </div>   
         
@@ -119,5 +129,6 @@ h3{                 /*카테고리*/
         </div>
     </div>
 <script src="addFriend.js"></script>
+<script src="friends.js"></script>
 </body>
 </html>
