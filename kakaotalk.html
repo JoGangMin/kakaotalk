@@ -11,22 +11,37 @@
     crossorigin="anonymous"></script>
     
 <link rel="stylesheet" href="style.css"> <!--공통 레이아웃-->
+<link rel="stylesheet" href="flotingBackGround.css">
 
     <style>
 /*친구페이지 전용*/
+li{
+    position: relative;
+    width: 100%;
+    height: 48px;
+}
 
 .propil{        /*프로필 사진 크기조정*/
-width: 40px;
+    position: absolute;
+    top:0px;
+    left:-26px;
+    width: 40px;
 height: 40px;
 border-radius: 10px;
 }
 
 .name{          /*친구,사용자,체팅방 제목이름 글자 크기 조정*/
+    position: absolute;
+    top:2px;
+    left:21px;
 font-size: 15px;
 padding-left: 10px;
 
 }
 .stateMessage{ /*상테메세지,채팅방 내용 글자크기 색 조정*/
+    position: absolute;
+    top:24px;
+    left:20px;
 font-size: 12px;
 color:gray;
 padding-left: 10px;
@@ -35,7 +50,6 @@ td
 {
 padding :0px;
 }
-
 
 h3{                 /*카테고리*/
         font-size:12px; 
@@ -63,63 +77,47 @@ h3{                 /*카테고리*/
         
         <div id="content"> <!--content-->
             <div id="title">
-            <h2>친구<i class="fas fa-user-plus"></i></h2>
+            <h2>친구<i id="jsAddFriend" class="fas fa-user-plus" ></i></h2>
             <input type="text" placeholder="이름검색" value="">    
             </div>
-
-            <table>
-                <tr>
-                <td><img class="propil" src="프로필 사진.png"></td>
-                <td><span class="name">조강민</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr>
-            </table>
-            <hr/>
-            <h3>즐겨찾기</h3>
-            <table>
-                <tr>
-                        <td><img class="propil" src="프로필 사진.png"></td>
-                        <td><span class="name">친구1</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr>
-                <tr>
-                    <td><img class="propil" src="프로필 사진.png"></td>
-                    <td><span class="name">친구2</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr> 
-                <tr>
-                    <td><img class="propil" src="프로필 사진.png"></td>
-                    <td><span class="name">친구3</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr>
-                <tr>
-                    <td><img class="propil" src="프로필 사진.png"></td>
-                    <td><span class="name">친구4</span> <br><span class="stateMessage">상테메세지</span> </td>
-                    </tr>              
-            </table>   
+            <ul>
+                <li><img class="propil" src="프로필 사진.png">
+                <span class="name">조강민</span><span class="stateMessage">상테메세지</span> </li>
+            </ul>
             <hr/>
             <h3>친구</h3>              
-            <table>
-                <tr>
-                    <td><img class="propil" src="프로필 사진.png"></td>
-                    <td><span class="name">친구5</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr>
-                <tr>
-                    <td><img class="propil" src="프로필 사진.png"></td>
-                    <td><span class="name">친구6</span> <br><span class="stateMessage">상테메세지</span> </td>
-                </tr> 
-                <tr>
-                        <td><img class="propil" src="프로필 사진.png"></td>
-                        <td><span class="name">친구7</span> <br><span class="stateMessage">상테메세지</span> </td>
-                    </tr>
-                    <tr>
-                            <td><img class="propil" src="프로필 사진.png"></td>
-                            <td><span class="name">친구8</span> <br><span class="stateMessage">상테메세지</span> </td>
-                        </tr>            
-            </table>
+            <ul id="jsFrendsList">
+                <li><img class="propil" src="프로필 사진.png">
+                <span class="name">친구5</span><span class="stateMessage">상테메세지</span> </li>     
             </ul>
         </div>   
-
-        <div id="commercial"><!--commercial-->
-        <img class="originalImg" src="광고2.png"  >
+        
+    <div id="jsBackGround" class="backGround">
+        <div class="content">
+                <div class="friendMenu">
+                <h2 class="title">친구만들기</h2>
+                <div class="menus">
+                <span class="menu">연락처로 친구추가</span>
+                <span class="menu">아이디 검색</span>
+                </div>
+            </div>
+                <div id="jsGetInfo">
+                    <input class="inputText" type="text" placeholder=" 이름">
+                    <input class="inputText" type="text" placeholder=" 상테메세지">
+                </div>
+            <div id="jsMessage" class="explain">
+                <h4>연락처로 친구를 추가할 수 있습니다.</h4>
+                <p>추가하고 싶은 친구의 이름과<br> 휴대전화 번호를 입력해주세요</p>
+                <div id="jsAskAdd" class="askButton">
+                </div>
+            </div>
+                <button id="jsAddButton" class="addButton">친구추가</button>   
         </div>
     </div>
-
+        <div id="commercial"><!--commercial-->
+        <img class="originalImg" src="광고2.png">
+        </div>
+    </div>
+<script src="addFriend.js"></script>
 </body>
 </html>
