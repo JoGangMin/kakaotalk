@@ -1,0 +1,36 @@
+.propilNavigation{
+    width: 100%;
+    height: 5%;
+}
+.propilContent{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    width: 100%;
+    height: 80%;  
+}
+.propilFunction{
+    width: 100%;
+    height: 15%; 
+}
+.propilStateMassage,.propilName{
+    color:white;
+    font-size: 20px;
+}
+.propillInfo{
+    
+    top: 60%;; 
+}
+.propilImage{
+    border-radius:30px ;
+}
+.propilName{
+
+    padding: 0px 24px;
+}
+.propilStateMassage{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
