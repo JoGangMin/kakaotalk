@@ -8,62 +8,54 @@ const addButton = document.querySelector("#jsAddButton");
 const frendsList = document.querySelector("#jsFrendsList");
 
 let friendArr=[];
-
-function addFriendList(name,currentMassage){
-    //세로운 데이터를 배열에 저장한다
-    const friendData ={
-        name:name,
-        currentMassage:currentMassage,
-    }
-    friendArr.push(friendData);
-    saveList();
-    printList(friendData);// 세로추가된 객체
-}
-
-function lodeData(){
-    //저장되어있는 데이터를 불러배열로 만든다.
-   
-    const list = JSON.parse(localStorage.getItem("listDate"));
+ 
+const handleData = {
+     add:function(name,currentMassage){
+        const friendData ={
+            name:name,
+            currentMassage:currentMassage,
+        }
+        friendArr.push(friendData);
+        handleData.save();
+        handleData.print(friendData);
+     },
+     lode:function(){
+        const list = JSON.parse(localStorage.getItem("listDate"));
         if(list !==null){
         list.forEach(element => {
         friendArr.push(element);
         });
-    }   
-    friendArr.forEach(element => {
-        printList(element);
-    });
-    
-    
-}
-
-function saveList(){
-    //friendArr 를 loclaStorage에 저장
+        }   
+        friendArr.forEach(element => {
+        handleData.print(element);
+        });
+     },
+     save:function(){
         localStorage.setItem("listDate",JSON.stringify(friendArr));
-    } 
-
-function printList(element){
-    //이름과 상테 메시지로 프로필을 만든다
-   
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    const nameSpan = document.createElement("span");
-    const stateSpan = document.createElement("span");
-    const ul = document.querySelector("#jsFrendsList");
+     },
+     print:function(element){
+        const li = document.createElement("li");
+        const img = document.createElement("img");
+        const nameSpan = document.createElement("span");
+        const stateSpan = document.createElement("span");
+        const ul = document.querySelector("#jsFrendsList");
+        
+        img.classList.add("propil");
+        nameSpan.classList.add("name");
+        stateSpan.classList.add("stateMessage");
     
-    img.classList.add("propil");
-    nameSpan.classList.add("name");
-    stateSpan.classList.add("stateMessage");
+        nameSpan.innerText = element.name;
+        stateSpan.innerText = element.currentMassage;
+        img.src = "프로필 사진.png";
+        li.classList.add("hover");
+    
+        li.appendChild(nameSpan);
+        li.appendChild(stateSpan);
+        li.appendChild(img);
+        ul.appendChild(li);         
+     }
+ }
 
-    nameSpan.innerText = element.name;
-    stateSpan.innerText = element.currentMassage;
-    img.src = "프로필 사진.png";
-    li.classList.add("hover");
-
-    li.appendChild(nameSpan);
-    li.appendChild(stateSpan);
-    li.appendChild(img);
-    ul.appendChild(li);
-}
 
 function askFrind( ){
     event.preventDefault();
@@ -80,7 +72,7 @@ function hideAddFrend(){
 function pushButton(){
     const nweName = newInfo.childNodes[1].value;
     const newState = newInfo.childNodes[3].value;
-    addFriendList(nweName,newState);
+    handleData.add(nweName,newState);
     askFrind();
     newInfo.childNodes[1].value = "";
     newInfo.childNodes[3].value = "";
@@ -93,7 +85,6 @@ function show(){
     backGround.addEventListener("click",hideAddFrend);//배경을 클릭시 친구추가창 사라짐
     addButton.addEventListener("click",pushButton);//친구추가 버튼 누루면
 }
-lodeData();
-
+handleData.lode();
 addFriend.addEventListener("click",show); // 친구추가창 열기
 

@@ -14,7 +14,7 @@ if(reQuestName!==""){
 friendArr=[]
 frendsList.innerHTML = "";
 result.forEach(element => {
-    printList(element);
+    handleData.print(element);
 });
 search.childNodes[1].value
 }
@@ -22,7 +22,7 @@ search.childNodes[1].value
 else {
     friendArr=[]
     frendsList.innerHTML = "";
-    lodeData();
+    handleData.lode();
 }
 }
 
