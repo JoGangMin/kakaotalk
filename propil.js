@@ -1,9 +1,11 @@
 const propilBackGround = document.querySelector("#jsPropil");
 const propilClose = document.querySelector("#jsPropilClose");
+const propilNamd = document.querySelector("#jsPropilName");
+const propilState = document.querySelector("#jsStayeMessage");
 
 function writeData(){
-    console.log(event.target.childNodes[0].innerText);
-    console.log(event.target.childNodes[1].innerText);
+    propilNamd.innerHTML = event.target.childNodes[0].innerHTML;
+    propilState.innerHTML = event.target.childNodes[1].innerHTML;
 }
 
 function closePropil(){
