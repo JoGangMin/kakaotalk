@@ -56,7 +56,7 @@ function printList(element){
 
     nameSpan.innerText = element.name;
     stateSpan.innerText = element.currentMassage;
-    img.src = "file:///C:/Users/%EC%88%98%EB%A3%8C%ED%95%98%EC%9E%90/Desktop/work/porjact/kakaotalk/%ED%94%84%EB%A1%9C%ED%95%84%20%EC%82%AC%EC%A7%84.png";
+    img.src = "프로필 사진.png";
     li.classList.add("hover");
 
     li.appendChild(nameSpan);
@@ -68,7 +68,7 @@ function printList(element){
 function askFrind( ){
     event.preventDefault();
     const name = newInfo.childNodes[1].value;
-   askAdd.innerText = `${name} 가 추가되었습니다.`; 
+   askAdd.innerText = `${name} 가 추가되었습니다.`;
 }
    
 function hideAddFrend(){
@@ -80,10 +80,10 @@ function hideAddFrend(){
 function pushButton(){
     const nweName = newInfo.childNodes[1].value;
     const newState = newInfo.childNodes[3].value;
+    addFriendList(nweName,newState);
+    askFrind();
     newInfo.childNodes[1].value = "";
     newInfo.childNodes[3].value = "";
-    askFrind();
-    addFriendList(nweName,newState);
     
     //입력데이터 저장,저장된 데이터 출력
 }
